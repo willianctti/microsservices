@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  cliente-service:
+    build: ./cliente-service
+    ports:
+      - "3001:3001"
+    networks:
+      - micro_net
+
+  pedido-service:
+    build: ./pedido-service
+    ports:
+      - "3002:3002"
+    networks:
+      - micro_net
+
+  entregador-service:
+    build: ./entregador-service
+    ports:
+      - "3003:3003"
+    networks:
+      - micro_net
+
+  notificacao-service:
+    build: ./notificacao-service
+    ports:
+      - "3004:3004"
+    networks:
+      - micro_net
+
+networks:
+  micro_net:
+    driver: bridge
